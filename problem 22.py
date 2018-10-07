@@ -5,16 +5,25 @@ for ligne in f:
 J=sorted(L)
 print(J)
 
-c = ['A','B','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
+def Somme_des_lettres_du_prenom(L):
+    s=0
+    c = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    for g in range(len(L)):         #On somme sur le nombre de lettre dans le mot
+        for k in range(len(c)):     #On parcourt l'alphabet
+            if L[g]==c[k]:          #On compare
+                s+=k+1              #Si les lettres sont égales alors l'indices k correspond à la position dans l'alphabet
+            else :                  #Cette ligne sert à éviter les problèmes avec les " contenue dans le fichier
+                pass
+    return s
 
-s=0
-
-for k in range(len(c)):
-    for g in J:
-        for h in g:
-            if h==c[k]:
-                s+=k
     
+assert Somme_des_lettres_du_prenom("COLIN")==53
 
+def solve():
+    p=0
+    for m in range(len(J)):
+        p+=(m+1)*Somme_des_lettres_du_prenom(J[m])
+    return p
 
+print(solve())
